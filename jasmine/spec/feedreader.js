@@ -126,20 +126,13 @@ done       */
         it('check single entry element', function() {
 
         const feed = $('.feed');//varable storing all entries from .feed
-        let feed1; //empty varable for at least on entry from parent .feed
-   
-
+        
         beforeEach(function (done) {  
-        loadFeed(0, function() {  //calling loadFeed function at 0 id
-            //this is from app.js function loadFeed(id, cb)
-           feed1 = feed.innerHTML; //prior to function completing adding .innerHTML of .feed
-            //heres were should have at least one entry element
-            done(); //this is when the function starts and ends.
-           });
+        loadFeed(0, done); 
        
         });
 
-        expect(feed1.hasClass('entry-link')).toBe(true);
+        expect(feed.children.length>0).toBe(true);
     
         });
      
