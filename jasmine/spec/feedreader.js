@@ -106,43 +106,43 @@ done       */
             menuIcon.trigger('click'); // hides menu again
             expect(body.hasClass('menu-hidden')).toBe(true);
          });
+
      });
 
     /* TODO: Write a new test suite named "Initial Entries"
     Done */
+
+
+    
     describe('Initial Entries', function() {
 
 
-    const feed = $('.feed');
-    let feed1 = [];
-    let feed2 = [];
+    const feed = $('.feed');//varable storing all entries from .feed
+    let feed1; //empty varable for at least on entry from parent .feed
+   
 
-    beforeEach(function(done) {
-        loadFeed(0, function() {
-            feed1 = $(.feed).innerHTML;
-            loadFeed();
+    beforeEach(function(done) {  
+        loadFeed(0, function() {  //calling loadFeed function at 0 id
+            //this is from app.js function loadFeed(id, cb)
+           feed1 = $(.feed).innerHTML; //prior to function completing adding .innerHTML of .feed
+            //here were should have at least one entry element
+            done(); //this is when the funtion starts and ends.
            });
-        loadFeed(1, function() {
        
-        feed2 = $(.feed).innerHTML;
-            done();
         });
-
-
-     });
 
 
 
   
     it('check single entry element', funtion() {
-    expect((feed1).not.toEqual(feed2)).toBe(true);
+    expect(feed1.hasClass('entry-link')).toBe(true);
     
       });
+ 
 
 
-
-});
-
+    });
+     
 
 
 
@@ -166,5 +166,5 @@ done       */
          * Remember, loadFeed() is asynchronous.
          */
 
-     });
-}());
+     
+});
